@@ -15,30 +15,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="entrypoint.cpp">
+    <ClCompile Include="engine\code\camera\camera2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="game.cpp">
+    <ClCompile Include="engine\code\game\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gamewindow.cpp">
+    <ClCompile Include="engine\code\utility\time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="clock.cpp">
+    <ClCompile Include="engine\code\entrypoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\code\graphics\textureloader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\code\graphics\gamewindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resolution.h">
+    <ClInclude Include="engine\code\camera\camera2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gamewindow.h">
+    <ClInclude Include="engine\code\game\game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="game.h">
+    <ClInclude Include="engine\code\utility\time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clock.h">
+    <ClInclude Include="engine\code\graphics\textureloader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\code\graphics\gamewindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\code\graphics\resolution.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

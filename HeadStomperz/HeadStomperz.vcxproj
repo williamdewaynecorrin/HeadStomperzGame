@@ -150,16 +150,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="clock.cpp" />
-    <ClCompile Include="entrypoint.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="gamewindow.cpp" />
+    <ClCompile Include="engine\code\camera\camera2D.cpp" />
+    <ClCompile Include="engine\code\entrypoint.cpp" />
+    <ClCompile Include="engine\code\game\game.cpp" />
+    <ClCompile Include="engine\code\graphics\gamewindow.cpp" />
+    <ClCompile Include="engine\code\graphics\textureloader.cpp" />
+    <ClCompile Include="engine\code\utility\time.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="clock.h" />
-    <ClInclude Include="game.h" />
-    <ClInclude Include="gamewindow.h" />
-    <ClInclude Include="resolution.h" />
+    <ClInclude Include="engine\code\camera\camera2D.h" />
+    <ClInclude Include="engine\code\game\game.h" />
+    <ClInclude Include="engine\code\graphics\gamewindow.h" />
+    <ClInclude Include="engine\code\graphics\resolution.h" />
+    <ClInclude Include="engine\code\graphics\textureloader.h" />
+    <ClInclude Include="engine\code\utility\time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
