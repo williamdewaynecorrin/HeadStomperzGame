@@ -8,23 +8,31 @@
 using namespace glm;
 
 namespace HSZGame {
-
-class camera2D
+// =================================================================================================
+// == 2D CAMERA CLASS ==============================================================================
+// =================================================================================================
+class Camera2D
 {
 public:
-	camera2D();
-	~camera2D();
+	// -- constructor and destructor
+	Camera2D();
+	~Camera2D();
+	// -- public methods
 	void Update(float dt);
 private:
 	void UpdateProjection();
-	void UpdateView();
+	void UpdateWorld();
 
 	// -- projection vars
 	vec2 topleft;
 	vec2 bottomright;
 	mat4 projectionortho;
 
-	// -- view vars
+	// -- transformation vars
+	vec2 position;
+	vec2 scale;
+	float rotation;
+	mat4 world;
 };
 
 }

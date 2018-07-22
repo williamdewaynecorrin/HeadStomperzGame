@@ -71,22 +71,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ExecutablePath>C:\OpenGL\dll;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\OpenGL\headers;$(IncludePath)</IncludePath>
+    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;$(IncludePath)</IncludePath>
     <LibraryPath>C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ExecutablePath>C:\OpenGL\dll;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\OpenGL\headers;$(IncludePath)</IncludePath>
+    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;$(IncludePath)</IncludePath>
     <LibraryPath>C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExecutablePath>C:\OpenGL\dll;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\OpenGL\headers;$(IncludePath)</IncludePath>
+    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;$(IncludePath)</IncludePath>
     <LibraryPath>C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ExecutablePath>C:\OpenGL\dll;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\OpenGL\headers;$(IncludePath)</IncludePath>
+    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;$(IncludePath)</IncludePath>
     <LibraryPath>C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -94,7 +94,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\OpenGL\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -107,7 +107,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\OpenGL\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -122,7 +122,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\OpenGL\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -139,7 +139,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\OpenGL\headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -150,20 +150,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="engine\code\game\actor.cpp" />
     <ClCompile Include="engine\code\camera\camera2D.cpp" />
     <ClCompile Include="engine\code\entrypoint.cpp" />
     <ClCompile Include="engine\code\game\game.cpp" />
     <ClCompile Include="engine\code\graphics\gamewindow.cpp" />
     <ClCompile Include="engine\code\graphics\textureloader.cpp" />
     <ClCompile Include="engine\code\utility\time.cpp" />
+    <ClCompile Include="engine\code\game\level.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="engine\code\game\actor.h" />
     <ClInclude Include="engine\code\camera\camera2D.h" />
     <ClInclude Include="engine\code\game\game.h" />
     <ClInclude Include="engine\code\graphics\gamewindow.h" />
     <ClInclude Include="engine\code\graphics\resolution.h" />
     <ClInclude Include="engine\code\graphics\textureloader.h" />
     <ClInclude Include="engine\code\utility\time.h" />
+    <ClInclude Include="engine\code\game\level.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

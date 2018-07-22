@@ -4,9 +4,9 @@
 //==================================================================================================
 
 #pragma once
-#include "gamewindow.h"
+#include "graphics\gamewindow.h"
+#include "graphics\resolution.h"
 #include "glm\ext.hpp"
-#include "resolution.h"
 
 namespace HSZGame 
 {
@@ -22,6 +22,10 @@ public:
 
 	// external functions ==========================================================================
 	int Run(RESOLUTION res);
+
+	// static functions ============================================================================
+	static void QuitApplication();
+	static void QuitApplicationWithError(char error[]);
 private:
 	// internal engine functions ===================================================================
 	bool Initialize(RESOLUTION res);
@@ -31,6 +35,9 @@ private:
 
 	// variable members ============================================================================
 	GameWindow* window;
-	bool gameover;
+
+	// static variable members =====================================================================
+	static bool gameover;
 };
+
 }

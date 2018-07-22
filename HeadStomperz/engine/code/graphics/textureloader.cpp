@@ -3,16 +3,16 @@
 //--------------------------------------- (c) William Dewayne Corrin, 2018  ------------------------
 //==================================================================================================
 
-#include "textureloader.h"
+#include "graphics\textureloader.h"
 
 namespace HSZGame{
 
-textureloader::textureloader()
+TextureLoader::TextureLoader()
 {
 }
 
 
-textureloader::~textureloader()
+TextureLoader::~TextureLoader()
 {
 }
 

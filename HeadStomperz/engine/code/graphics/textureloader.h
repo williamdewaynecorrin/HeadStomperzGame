@@ -7,11 +7,11 @@
 
 namespace HSZGame {
 
-class textureloader
+class TextureLoader
 {
 public:
-	textureloader();
-	~textureloader();
+	TextureLoader();
+	~TextureLoader();
 };
 
 }
