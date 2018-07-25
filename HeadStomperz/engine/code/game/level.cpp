@@ -6,12 +6,51 @@
 #include "level.h"
 namespace HSZGame {
 
-Level::Level()
+Level::Level(char levelname[])
 {
+	name = levelname;
+	actors = std::vector<Actor*>();
+	components = std::vector<Component*>();
 }
 
 Level::~Level()
 {
+
+}
+
+// =================================================================================================
+// -- PUBLIC FUNCTIONS
+// =================================================================================================
+// =================================================================================================
+// -- returns the actor associated with given id; nullptr if doesnt exist
+// =================================================================================================
+Actor* Level::GetActorByID(unsigned int id)
+{
+	int actorlen = actors.size();
+
+	for (int i = 0; i < actorlen; ++i)
+	{
+		if (actors[i]->actorid == id)
+			return actors[i];
+	}
+
+	return nullptr;
+}
+
+// =================================================================================================
+// -- gets all actors in this level
+// =================================================================================================
+std::vector<Actor*> Level::GetAllActors()
+{
+	return actors;
+}
+
+// =================================================================================================
+// -- gets all components in this level
+// =================================================================================================
+std::vector<Component*> Level::GetAllComponents()
+{
+	return components;
 }
 
 }

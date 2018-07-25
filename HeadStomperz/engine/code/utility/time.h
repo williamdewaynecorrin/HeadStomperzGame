@@ -16,13 +16,14 @@ public:
 	Time();
 	~Time();
 	void Tick();
-private:
+
 	// -- custom time with a fixed timestep
 	float totaltime;
 	float timestep;
 	float deltatime;
 	// -- frames
 	int frames;
+private:
 	// -- system time
 	long double systemtimeatinitialize;
 	long double systemtime;

@@ -20,6 +20,7 @@ public:
 	// -- public methods
 	void Update(float dt);
 private:
+	// -- update camera functions for projection and world
 	void UpdateProjection();
 	void UpdateWorld();
 

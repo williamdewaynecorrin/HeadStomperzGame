@@ -71,35 +71,36 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ExecutablePath>C:\OpenGL\dll;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;C:\OpenGL\soil\src;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\OpenGL\lib;C:\OpenGL\soil\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ExecutablePath>C:\OpenGL\dll;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;C:\OpenGL\soil\src;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\OpenGL\lib;C:\OpenGL\soil\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExecutablePath>C:\OpenGL\dll;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;C:\OpenGL\soil\src;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\OpenGL\lib;C:\OpenGL\soil\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ExecutablePath>C:\OpenGL\dll;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;C:\OpenGL\soil\src;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\OpenGL\lib;C:\OpenGL\soil\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;C:\OpenGL\soil\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\OpenGL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;OpenGL32.Lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\OpenGL\lib;C:\OpenGL\soil\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;OpenGL32.Lib;assimp.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -107,12 +108,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;C:\OpenGL\soil\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\OpenGL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;OpenGL32.Lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\OpenGL\lib;C:\OpenGL\soil\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;OpenGL32.Lib;assimp.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,14 +124,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;C:\OpenGL\soil\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\OpenGL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;OpenGL32.Lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\OpenGL\lib;C:\OpenGL\soil\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;OpenGL32.Lib;assimp.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,35 +142,51 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\OpenGL\headers;C:\Users\socce\Documents\C++ Projects\HeadStomperz\HeadStomperz\engine\code;C:\OpenGL\soil\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\OpenGL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;OpenGL32.Lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\OpenGL\lib;C:\OpenGL\soil\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;OpenGL32.Lib;assimp.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="engine\code\component\component.cpp" />
     <ClCompile Include="engine\code\game\actor.cpp" />
     <ClCompile Include="engine\code\camera\camera2D.cpp" />
     <ClCompile Include="engine\code\entrypoint.cpp" />
     <ClCompile Include="engine\code\game\game.cpp" />
     <ClCompile Include="engine\code\graphics\gamewindow.cpp" />
-    <ClCompile Include="engine\code\graphics\textureloader.cpp" />
+    <ClCompile Include="engine\code\graphics\contentbase.cpp" />
     <ClCompile Include="engine\code\utility\time.cpp" />
     <ClCompile Include="engine\code\game\level.cpp" />
+    <ClCompile Include="engine\code\component\spritecomponent.cpp" />
+    <ClCompile Include="engine\code\graphics\shader.cpp" />
+    <ClCompile Include="engine\code\componentsystem\spritecomponentsystem.cpp" />
+    <ClCompile Include="engine\code\graphics\texture2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="engine\code\componentsystem\componentsystem.cpp" />
+    <ClInclude Include="engine\code\componentsystem\componentsystem.h" />
+    <ClInclude Include="engine\code\component\component.h" />
     <ClInclude Include="engine\code\game\actor.h" />
     <ClInclude Include="engine\code\camera\camera2D.h" />
     <ClInclude Include="engine\code\game\game.h" />
     <ClInclude Include="engine\code\graphics\gamewindow.h" />
     <ClInclude Include="engine\code\graphics\resolution.h" />
-    <ClInclude Include="engine\code\graphics\textureloader.h" />
+    <ClInclude Include="engine\code\graphics\contentbase.h" />
     <ClInclude Include="engine\code\utility\time.h" />
     <ClInclude Include="engine\code\game\level.h" />
+    <ClInclude Include="engine\code\component\spritecomponent.h" />
+    <ClInclude Include="engine\code\graphics\shader.h" />
+    <ClInclude Include="engine\code\componentsystem\spritecomponentsystem.h" />
+    <ClInclude Include="engine\code\graphics\texture2D.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="engine\content\textures\test_sprite_01.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

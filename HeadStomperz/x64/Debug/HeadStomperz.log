@@ -1,0 +1,121 @@
+﻿  texture2D.cpp
+  spritecomponentsystem.cpp
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\game\level.h(48): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\componentsystem\spritecomponentsystem.cpp(33): note: see reference to function template instantiation 'bool HSZGame::Level::GetComponentsOfType<T>(std::vector<T *,std::allocator<_Ty>> *)' being compiled
+          with
+          [
+              T=HSZGame::SpriteComponent,
+              _Ty=HSZGame::SpriteComponent *
+          ]
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\game\level.h(58): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\game\level.h(58): note: consider using '%zd' in the format string
+  shader.cpp
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\graphics\shader.cpp(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  spritecomponent.cpp
+  level.cpp
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\game\level.cpp(29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  time.cpp
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\utility\time.cpp(22): warning C4244: '=': conversion from 'time_t' to 'long double', possible loss of data
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\utility\time.cpp(23): warning C4244: '=': conversion from 'time_t' to 'long double', possible loss of data
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\utility\time.cpp(41): warning C4244: '=': conversion from 'time_t' to 'long double', possible loss of data
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\utility\time.cpp(45): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+  contentbase.cpp
+  gamewindow.cpp
+  game.cpp
+  entrypoint.cpp
+  camera2D.cpp
+  actor.cpp
+  component.cpp
+  Generating Code...
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\component\spritecomponent.cpp(58): warning C4715: 'HSZGame::SpriteComponent::Initialize': not all control paths return a value
+game.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function "private: void __cdecl HSZGame::Game::UpdateDisplay(void)" (?UpdateDisplay@Game@HSZGame@@AEAAXXZ)
+game.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function "private: void __cdecl HSZGame::Game::UpdateDisplay(void)" (?UpdateDisplay@Game@HSZGame@@AEAAXXZ)
+game.obj : error LNK2019: unresolved external symbol glfwGetKey referenced in function "private: void __cdecl HSZGame::Game::UpdateDisplay(void)" (?UpdateDisplay@Game@HSZGame@@AEAAXXZ)
+game.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function "private: void __cdecl HSZGame::Game::UpdateDisplay(void)" (?UpdateDisplay@Game@HSZGame@@AEAAXXZ)
+gamewindow.obj : error LNK2019: unresolved external symbol __imp_glGetString referenced in function "public: struct GLFWwindow * __cdecl HSZGame::GameWindow::WindowInit(int,int,char * const,bool)" (?WindowInit@GameWindow@HSZGame@@QEAAPEAUGLFWwindow@@HHQEAD_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol __imp_glewInit referenced in function "public: struct GLFWwindow * __cdecl HSZGame::GameWindow::WindowInit(int,int,char * const,bool)" (?WindowInit@GameWindow@HSZGame@@QEAAPEAUGLFWwindow@@HHQEAD_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol __imp_glewGetErrorString referenced in function "public: struct GLFWwindow * __cdecl HSZGame::GameWindow::WindowInit(int,int,char * const,bool)" (?WindowInit@GameWindow@HSZGame@@QEAAPEAUGLFWwindow@@HHQEAD_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol glfwInit referenced in function "public: struct GLFWwindow * __cdecl HSZGame::GameWindow::WindowInit(int,int,char * const,bool)" (?WindowInit@GameWindow@HSZGame@@QEAAPEAUGLFWwindow@@HHQEAD_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol glfwGetPrimaryMonitor referenced in function "public: struct GLFWwindow * __cdecl HSZGame::GameWindow::WindowInit(int,int,char * const,bool)" (?WindowInit@GameWindow@HSZGame@@QEAAPEAUGLFWwindow@@HHQEAD_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function "public: struct GLFWwindow * __cdecl HSZGame::GameWindow::WindowInit(int,int,char * const,bool)" (?WindowInit@GameWindow@HSZGame@@QEAAPEAUGLFWwindow@@HHQEAD_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function "public: struct GLFWwindow * __cdecl HSZGame::GameWindow::WindowInit(int,int,char * const,bool)" (?WindowInit@GameWindow@HSZGame@@QEAAPEAUGLFWwindow@@HHQEAD_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol glfwGetWindowPos referenced in function "public: bool __cdecl HSZGame::GameWindow::SetFullscreen(bool)" (?SetFullscreen@GameWindow@HSZGame@@QEAA_N_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol glfwSetWindowSize referenced in function "public: bool __cdecl HSZGame::GameWindow::SetWindowDimensions(int,int)" (?SetWindowDimensions@GameWindow@HSZGame@@QEAA_NHH@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol glfwGetWindowMonitor referenced in function "public: bool __cdecl HSZGame::GameWindow::SetFullscreen(bool)" (?SetFullscreen@GameWindow@HSZGame@@QEAA_N_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol glfwSetWindowMonitor referenced in function "public: bool __cdecl HSZGame::GameWindow::SetFullscreen(bool)" (?SetFullscreen@GameWindow@HSZGame@@QEAA_N_N@Z)
+gamewindow.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function "public: struct GLFWwindow * __cdecl HSZGame::GameWindow::WindowInit(int,int,char * const,bool)" (?WindowInit@GameWindow@HSZGame@@QEAAPEAUGLFWwindow@@HHQEAD_N@Z)
+gamewindow.obj : error LNK2001: unresolved external symbol __imp_glewExperimental
+contentbase.obj : error LNK2019: unresolved external symbol __imp_glDeleteTextures referenced in function "public: static void __cdecl HSZGame::ContentBase::ClearAll(void)" (?ClearAll@ContentBase@HSZGame@@SAXXZ)
+contentbase.obj : error LNK2019: unresolved external symbol SOIL_load_image referenced in function "private: static class HSZGame::Texture2D __cdecl HSZGame::ContentBase::LoadTexture2DFromFile(char const *,bool)" (?LoadTexture2DFromFile@ContentBase@HSZGame@@CA?AVTexture2D@2@PEBD_N@Z)
+contentbase.obj : error LNK2019: unresolved external symbol SOIL_free_image_data referenced in function "private: static class HSZGame::Texture2D __cdecl HSZGame::ContentBase::LoadTexture2DFromFile(char const *,bool)" (?LoadTexture2DFromFile@ContentBase@HSZGame@@CA?AVTexture2D@2@PEBD_N@Z)
+contentbase.obj : error LNK2001: unresolved external symbol __imp___glewDeleteProgram
+spritecomponent.obj : error LNK2001: unresolved external symbol __imp___glewBindBuffer
+spritecomponent.obj : error LNK2001: unresolved external symbol __imp___glewBufferData
+spritecomponent.obj : error LNK2001: unresolved external symbol __imp___glewGenBuffers
+spritecomponent.obj : error LNK2001: unresolved external symbol __imp___glewEnableVertexAttribArray
+spritecomponent.obj : error LNK2001: unresolved external symbol __imp___glewVertexAttribPointer
+spritecomponent.obj : error LNK2001: unresolved external symbol __imp___glewBindVertexArray
+spritecomponent.obj : error LNK2001: unresolved external symbol __imp___glewGenVertexArrays
+shader.obj : error LNK2001: unresolved external symbol __imp___glewAttachShader
+shader.obj : error LNK2001: unresolved external symbol __imp___glewCompileShader
+shader.obj : error LNK2001: unresolved external symbol __imp___glewCreateProgram
+shader.obj : error LNK2001: unresolved external symbol __imp___glewCreateShader
+shader.obj : error LNK2001: unresolved external symbol __imp___glewDeleteShader
+shader.obj : error LNK2001: unresolved external symbol __imp___glewGetProgramInfoLog
+shader.obj : error LNK2001: unresolved external symbol __imp___glewGetProgramiv
+shader.obj : error LNK2001: unresolved external symbol __imp___glewGetShaderInfoLog
+shader.obj : error LNK2001: unresolved external symbol __imp___glewGetShaderiv
+shader.obj : error LNK2001: unresolved external symbol __imp___glewGetUniformLocation
+shader.obj : error LNK2001: unresolved external symbol __imp___glewLinkProgram
+shader.obj : error LNK2001: unresolved external symbol __imp___glewShaderSource
+shader.obj : error LNK2001: unresolved external symbol __imp___glewUniform1f
+shader.obj : error LNK2001: unresolved external symbol __imp___glewUniform1i
+shader.obj : error LNK2001: unresolved external symbol __imp___glewUniform2f
+shader.obj : error LNK2001: unresolved external symbol __imp___glewUniform3f
+shader.obj : error LNK2001: unresolved external symbol __imp___glewUniform4f
+shader.obj : error LNK2001: unresolved external symbol __imp___glewUniformMatrix4fv
+texture2D.obj : error LNK2019: unresolved external symbol __imp_glBindTexture referenced in function "public: void __cdecl HSZGame::Texture2D::Bind(void)const " (?Bind@Texture2D@HSZGame@@QEBAXXZ)
+texture2D.obj : error LNK2019: unresolved external symbol __imp_glGenTextures referenced in function "public: __cdecl HSZGame::Texture2D::Texture2D(void)" (??0Texture2D@HSZGame@@QEAA@XZ)
+texture2D.obj : error LNK2019: unresolved external symbol __imp_glTexImage2D referenced in function "public: void __cdecl HSZGame::Texture2D::Initialize(unsigned int,unsigned int,unsigned char *)" (?Initialize@Texture2D@HSZGame@@QEAAXIIPEAE@Z)
+texture2D.obj : error LNK2019: unresolved external symbol __imp_glTexParameteri referenced in function "public: void __cdecl HSZGame::Texture2D::Initialize(unsigned int,unsigned int,unsigned char *)" (?Initialize@Texture2D@HSZGame@@QEAAXIIPEAE@Z)
+MSVCRTD.lib(_error_.obj) : error LNK2019: unresolved external symbol __imp_IsDebuggerPresent referenced in function "void __cdecl failwithmessage(void *,int,int,char const *)" (?failwithmessage@@YAXPEAXHHPEBD@Z)
+MSVCRTD.lib(utility_desktop.obj) : error LNK2001: unresolved external symbol __imp_IsDebuggerPresent
+MSVCRTD.lib(_error_.obj) : error LNK2019: unresolved external symbol __imp_RaiseException referenced in function "int __cdecl DebuggerProbe(unsigned long)" (?DebuggerProbe@@YAHK@Z)
+MSVCRTD.lib(_error_.obj) : error LNK2019: unresolved external symbol __imp_MultiByteToWideChar referenced in function "void __cdecl failwithmessage(void *,int,int,char const *)" (?failwithmessage@@YAXPEAXHHPEBD@Z)
+MSVCRTD.lib(_error_.obj) : error LNK2019: unresolved external symbol __imp_WideCharToMultiByte referenced in function "void __cdecl failwithmessage(void *,int,int,char const *)" (?failwithmessage@@YAXPEAXHHPEBD@Z)
+MSVCRTD.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_RtlCaptureContext referenced in function capture_current_context
+MSVCRTD.lib(utility_desktop.obj) : error LNK2001: unresolved external symbol __imp_RtlCaptureContext
+MSVCRTD.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_RtlLookupFunctionEntry referenced in function capture_current_context
+MSVCRTD.lib(utility_desktop.obj) : error LNK2001: unresolved external symbol __imp_RtlLookupFunctionEntry
+MSVCRTD.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_RtlVirtualUnwind referenced in function capture_current_context
+MSVCRTD.lib(utility_desktop.obj) : error LNK2001: unresolved external symbol __imp_RtlVirtualUnwind
+MSVCRTD.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_UnhandledExceptionFilter referenced in function __raise_securityfailure
+MSVCRTD.lib(utility_desktop.obj) : error LNK2001: unresolved external symbol __imp_UnhandledExceptionFilter
+MSVCRTD.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_SetUnhandledExceptionFilter referenced in function __raise_securityfailure
+MSVCRTD.lib(utility_desktop.obj) : error LNK2001: unresolved external symbol __imp_SetUnhandledExceptionFilter
+MSVCRTD.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_GetCurrentProcess referenced in function __raise_securityfailure
+MSVCRTD.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_TerminateProcess referenced in function __raise_securityfailure
+MSVCRTD.lib(gs_report.obj) : error LNK2019: unresolved external symbol IsProcessorFeaturePresent referenced in function __report_gsfailure
+MSVCRTD.lib(utility_desktop.obj) : error LNK2001: unresolved external symbol IsProcessorFeaturePresent
+MSVCRTD.lib(_pdblkup_.obj) : error LNK2019: unresolved external symbol __imp_GetLastError referenced in function "struct HINSTANCE__ * __cdecl GetPdbDll(void)" (?GetPdbDll@@YAPEAUHINSTANCE__@@XZ)
+MSVCRTD.lib(_pdblkup_.obj) : error LNK2019: unresolved external symbol __imp_HeapAlloc referenced in function "int __cdecl _RTC_GetSrcLine(unsigned char *,wchar_t *,unsigned long,int *,wchar_t *,unsigned long)" (?_RTC_GetSrcLine@@YAHPEAEPEA_WKPEAH1K@Z)
+MSVCRTD.lib(_pdblkup_.obj) : error LNK2019: unresolved external symbol __imp_HeapFree referenced in function "int __cdecl _RTC_GetSrcLine(unsigned char *,wchar_t *,unsigned long,int *,wchar_t *,unsigned long)" (?_RTC_GetSrcLine@@YAHPEAEPEA_WKPEAH1K@Z)
+MSVCRTD.lib(_pdblkup_.obj) : error LNK2019: unresolved external symbol __imp_GetProcessHeap referenced in function "int __cdecl _RTC_GetSrcLine(unsigned char *,wchar_t *,unsigned long,int *,wchar_t *,unsigned long)" (?_RTC_GetSrcLine@@YAHPEAEPEA_WKPEAH1K@Z)
+MSVCRTD.lib(_pdblkup_.obj) : error LNK2019: unresolved external symbol __imp_VirtualQuery referenced in function "int __cdecl _RTC_GetSrcLine(unsigned char *,wchar_t *,unsigned long,int *,wchar_t *,unsigned long)" (?_RTC_GetSrcLine@@YAHPEAEPEA_WKPEAH1K@Z)
+MSVCRTD.lib(_pdblkup_.obj) : error LNK2019: unresolved external symbol __imp_FreeLibrary referenced in function "struct HINSTANCE__ * __cdecl GetPdbDllFromInstallPath(void)" (?GetPdbDllFromInstallPath@@YAPEAUHINSTANCE__@@XZ)
+MSVCRTD.lib(_pdblkup_.obj) : error LNK2019: unresolved external symbol __imp_GetProcAddress referenced in function "struct HINSTANCE__ * __cdecl GetPdbDllFromInstallPath(void)" (?GetPdbDllFromInstallPath@@YAPEAUHINSTANCE__@@XZ)
+MSVCRTD.lib(utility_desktop.obj) : error LNK2019: unresolved external symbol __imp_GetStartupInfoW referenced in function __scrt_get_show_window_mode
+MSVCRTD.lib(utility_desktop.obj) : error LNK2019: unresolved external symbol __imp_GetModuleHandleW referenced in function __scrt_is_managed_app
+MSVCRTD.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_QueryPerformanceCounter referenced in function __get_entropy
+MSVCRTD.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_GetCurrentProcessId referenced in function __get_entropy
+MSVCRTD.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_GetCurrentThreadId referenced in function __get_entropy
+MSVCRTD.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_GetSystemTimeAsFileTime referenced in function __get_entropy
+MSVCRTD.lib(tncleanup.obj) : error LNK2019: unresolved external symbol __imp_InitializeSListHead referenced in function "void __cdecl __scrt_initialize_type_info(void)" (?__scrt_initialize_type_info@@YAXXZ)
+C:\OpenGL\lib\glew32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\OpenGL\lib\glew32s.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\OpenGL\lib\glfw3.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\OpenGL\lib\glfw3dll.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\OpenGL\lib\OpenGL32.Lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\OpenGL\lib\assimp.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\OpenGL\lib\kernel32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\socce\Documents\C++ Projects\HeadStomperz\x64\Debug\HeadStomperz.exe : fatal error LNK1120: 76 unresolved externals

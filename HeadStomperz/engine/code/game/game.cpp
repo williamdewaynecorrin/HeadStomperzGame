@@ -11,6 +11,9 @@ namespace HSZGame
 // -- STATIC DECLARATIONS
 // =================================================================================================
 bool Game::gameover = false;
+unsigned int Game::guidactor = 0;
+unsigned int Game::guidcomponent = 0;
+Game* Game::gameinstance = nullptr;
 
 // =================================================================================================
 // -- CONSTRUCTORS / DESTRUCTORS
@@ -18,6 +21,14 @@ bool Game::gameover = false;
 Game::Game()
 {
 	this->gameover = false;
+
+	// -- create game instance
+	if (gameinstance == nullptr)
+	{
+		gameinstance = this;
+		printf("Static Game Instance singleton initialized.\n");
+	}
+	else printf("FATAL ERROR. Two Game Instances are running...are you constructring two Games?\n");
 }
 
 Game::~Game()
@@ -60,6 +71,42 @@ void Game::QuitApplicationWithError(char error[])
 }
 
 // =================================================================================================
+// -- returns a globally unique actor id by incrementing the value every time a guid is desired
+// =================================================================================================
+int Game::GenerateActorGUID()
+{
+	return guidactor++;
+}
+
+// =================================================================================================
+// -- returns a globally unique component id by incrementing the value every time a guid is desired
+// =================================================================================================
+int Game::GenerateComponentGUID()
+{
+	return guidcomponent++;
+}
+
+void Game::ChangeLevel(char levelname[])
+{
+
+}
+
+void Game::ChangeLevel(int levelindex)
+{
+
+}
+
+Level* Game::GetCurrentLevel()
+{
+	return gameinstance->levels[gameinstance->currentlevelindex];
+}
+
+Camera2D* Game::GetDefaultCamera()
+{
+	return gameinstance->cameras[0];
+}
+
+// =================================================================================================
 // -- PRIVATE INTERNAL FUNCTIONS
 // =================================================================================================
 // =================================================================================================
@@ -69,14 +116,20 @@ void Game::Update()
 {
 	do
 	{
+		// -- update logic: tick the time, update component systems, update level, 
+		// -- render, update display
+		time->Tick();
+		UpdateComponentSystems();
 		UpdateDisplay();
-	} while (!gameover);
+		Render();
+	} 
+	while (!gameover);
 }
 
 // =================================================================================================
 // -- renders all objects currently needed to be rendered in the game 
 // =================================================================================================
-void Game::Draw()
+void Game::Render()
 {
 	
 }
@@ -109,6 +162,26 @@ void Game::UpdateDisplay()
 }
 
 // =================================================================================================
+// -- updates all the cameras in the camera list
+// =================================================================================================
+void Game::UpdateCameras()
+{
+	for (int i = 0; i < cameras.size(); ++i)
+	{
+		cameras[i]->Update(time->deltatime);
+	}
+}
+
+// =================================================================================================
+// -- updates the component sytems 
+// =================================================================================================
+void Game::UpdateComponentSystems()
+{
+	spritecs->UpdateComponents(time->deltatime);
+}
+
+
+// =================================================================================================
 // -- initializes the Game and all of its functionality
 // =================================================================================================
 bool Game::Initialize(RESOLUTION res)
@@ -138,6 +211,13 @@ bool Game::Initialize(RESOLUTION res)
 		printf("Could not Initialize GameWindow.");
 		return false;
 	}
+
+	// -- init component systems
+	spritecs = new SpriteComponentSystem();
+	// -- init time object
+	time = new Time();
+	// -- init camera object
+	cameras.push_back(new Camera2D());
 
 	return true;
 }
