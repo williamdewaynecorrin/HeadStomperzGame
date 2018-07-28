@@ -17,16 +17,7 @@ Camera2D::Camera2D()
 	bottomright = vec2(800.0f, 600.0f);
 	// -- glm::ortho: x, width, heigiht, y
 	projectionortho = glm::ortho(topleft.x, bottomright.x, bottomright.y, topleft.y);
-
-	// -- transformation stuff
-	position = vec2(0.0f, 0.0f);
-	scale = vec2(1.0f, 1.0f);
-	rotation = 0.0f;
-	// -- world matrix calculated by ROTATE SCALE TRANSLATE - remember reverse order
-	world = glm::translate(vec3(position.x, position.y, 0.0f)) *
-		glm::scale(vec3(scale.x, scale.y, 1.0f)) *
-		glm::rotate(radians(rotation), vec3(0.0f, 0.0f, 1.0f));
-			
+	transform = new TransformComponent(100000);
 }
 
 
@@ -63,9 +54,7 @@ void Camera2D::UpdateProjection()
 // =================================================================================================
 void Camera2D::UpdateWorld()
 {
-	world = glm::translate(vec3(position.x, position.y, 0.0f)) *
-		glm::scale(vec3(scale.x, scale.y, 1.0f)) *
-		glm::rotate(rotation, vec3(0.0f, 0.0f, 1.0f));
+	transform->UpdateWorld();
 }
 
 }

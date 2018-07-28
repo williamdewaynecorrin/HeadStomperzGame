@@ -22,6 +22,7 @@ public:
 	static Shader LoadShader(char* storagename, const char* vertshaderfile, 
 		const char* fragshaderfile, const char* geoshader = nullptr);
 	static Shader GetShader(char* storagename);
+	static Shader GetDefaultSpriteShader();
 	static Texture2D LoadTexture2D(char* storagename, const char* filename, bool usealpha);
 	static Texture2D GetTexture2D(char* storagename);
 	static void	ClearAll();

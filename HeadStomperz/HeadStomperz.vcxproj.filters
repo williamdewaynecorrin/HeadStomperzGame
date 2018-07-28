@@ -54,6 +54,12 @@
     <ClCompile Include="engine\code\graphics\texture2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\code\component\transformcomponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\code\componentsystem\transformcomponentsystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\code\camera\camera2D.h">
@@ -101,10 +107,15 @@
     <ClInclude Include="engine\code\graphics\texture2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="engine\code\component\transformcomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\code\componentsystem\transformcomponentsystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="engine\content\textures\test_sprite_01.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <None Include="content\shaders\sprite.frag" />
+    <None Include="content\shaders\sprite.vert" />
   </ItemGroup>
 </Project>

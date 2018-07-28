@@ -21,6 +21,7 @@ Game* Game::gameinstance = nullptr;
 Game::Game()
 {
 	this->gameover = false;
+	this->currentlevelname = LEVEL_NONE;
 
 	// -- create game instance
 	if (gameinstance == nullptr)
@@ -29,6 +30,18 @@ Game::Game()
 		printf("Static Game Instance singleton initialized.\n");
 	}
 	else printf("FATAL ERROR. Two Game Instances are running...are you constructring two Games?\n");
+
+	// - init lists / maps
+	levels = std::map<const char*, Level*>();
+	cameras = std::vector<Camera2D*>();
+
+	// -- construct component systems
+	spritecs = new SpriteComponentSystem();
+	transformcs = new TransformComponentSystem();
+	// -- construct time object
+	time = new Time();
+	// -- construct camera object
+	cameras.push_back(new Camera2D());
 }
 
 Game::~Game()
@@ -88,17 +101,31 @@ int Game::GenerateComponentGUID()
 
 void Game::ChangeLevel(char levelname[])
 {
-
+	ChangeLevel(*gameinstance->levels[levelname], levelname);
 }
 
-void Game::ChangeLevel(int levelindex)
+void Game::ChangeLevel(Level& to, char levelname[])
 {
+	//todo: unload current level, if exists
+	if (gameinstance->currentlevelname != LEVEL_NONE)
+	{
+		gameinstance->transformcs->ClearFromCurrentLevel();
+		gameinstance->spritecs->ClearFromCurrentLevel();
+	}
 
+	// -- now we can change currentlevelname and load new level
+	gameinstance->currentlevelname = levelname;
+	// -- populate all component systems
+	gameinstance->transformcs->PopulateFromCurrentLevel(GetCurrentLevel());
+	gameinstance->spritecs->PopulateFromCurrentLevel(GetCurrentLevel());
+	// -- init all cs
+	gameinstance->transformcs->Initialize();
+	gameinstance->spritecs->Initialize();
 }
 
 Level* Game::GetCurrentLevel()
 {
-	return gameinstance->levels[gameinstance->currentlevelindex];
+	return gameinstance->levels[gameinstance->currentlevelname];
 }
 
 Camera2D* Game::GetDefaultCamera()
@@ -177,9 +204,39 @@ void Game::UpdateCameras()
 // =================================================================================================
 void Game::UpdateComponentSystems()
 {
+	transformcs->UpdateComponents(time->deltatime);
 	spritecs->UpdateComponents(time->deltatime);
 }
 
+void Game::LoadContent()
+{
+	ContentBase::LoadTexture2D("collectable_01", "content//textures//test_sprite_01.bmp", true);
+	ContentBase::LoadShader("sprite_default", "content//shaders//sprite.vert",
+		"content//shaders//sprite.frag");
+}
+
+void Game::LoadLevels()
+{
+	// -- load level
+	Level* test = new Level("test_level");
+	AddLevel(test);
+
+	// -- create actor
+	unsigned int testactorid = test->AddActor("test_actor");
+	// -- add actor components
+	TransformComponent* transform = new TransformComponent(testactorid);
+	test->RegisterComponent(transform);
+	SpriteComponent* sprite = new SpriteComponent(testactorid);
+	test->RegisterComponent(sprite);
+
+	// -- change current level to test level
+	ChangeLevel(test->GetName());
+}
+
+void Game::AddLevel(Level* l)
+{
+	levels[l->GetName()] = l;
+}
 
 // =================================================================================================
 // -- initializes the Game and all of its functionality
@@ -212,12 +269,9 @@ bool Game::Initialize(RESOLUTION res)
 		return false;
 	}
 
-	// -- init component systems
-	spritecs = new SpriteComponentSystem();
-	// -- init time object
-	time = new Time();
-	// -- init camera object
-	cameras.push_back(new Camera2D());
+	// -- load content first before initializing, in case inits use content
+	LoadContent();
+	LoadLevels();
 
 	return true;
 }

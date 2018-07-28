@@ -10,17 +10,29 @@
 
 namespace HSZGame {
 
-bool Component::Initialize(unsigned int owningactorid)
+Component::Component(unsigned int owningactorid) :
+	Component(owningactorid, "default")
 {
-	return Initialize(owningactorid, "default");
+
 }
 
-bool Component::Initialize(unsigned int owningactorid, char* componentname)
+Component::Component(unsigned int owningactorid, char* componentname)
 {
 	enabled = true;
 	name = componentname;
 	ownerid = owningactorid;
 	componentid = Game::GenerateComponentGUID();
+
+	printf("Component init.");
+}
+
+Component::~Component()
+{
+
+}
+
+bool Component::Initialize()
+{
 	return true;
 }
 

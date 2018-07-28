@@ -69,9 +69,4 @@ GLuint Texture2D::GetImageFormat()
 	return imageformat;
 }
 
-//GLuint Texture2D::GetTextureID()
-//{
-//	return handle;
-//}
-
 }

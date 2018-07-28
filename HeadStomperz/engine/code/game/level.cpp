@@ -9,8 +9,8 @@ namespace HSZGame {
 Level::Level(char levelname[])
 {
 	name = levelname;
-	actors = std::vector<Actor*>();
-	components = std::vector<Component*>();
+	actors = std::map<unsigned int, Actor*>();
+	components = std::map<unsigned int, Component*>();
 }
 
 Level::~Level()
@@ -42,7 +42,14 @@ Actor* Level::GetActorByID(unsigned int id)
 // =================================================================================================
 std::vector<Actor*> Level::GetAllActors()
 {
-	return actors;
+	typedef map<unsigned int, Actor*> MapType;
+	std::vector<Actor*> v;
+
+	for (MapType::iterator it = actors.begin(); it != actors.end(); ++it) {
+		v.push_back(it->second);
+	}
+
+	return v;
 }
 
 // =================================================================================================
@@ -50,7 +57,34 @@ std::vector<Actor*> Level::GetAllActors()
 // =================================================================================================
 std::vector<Component*> Level::GetAllComponents()
 {
-	return components;
+	typedef map<unsigned int, Component*> MapType;
+	std::vector<Component*> v;
+
+	for (MapType::iterator it = components.begin(); it != components.end(); ++it) {
+		v.push_back(it->second);
+	}
+
+	return v;
+}
+
+// =================================================================================================
+// -- gets all components in this level
+// =================================================================================================
+unsigned int Level::AddActor(char* actorname)
+{
+	Actor* a = new Actor(actorname);
+	actors[a->actorid] = a;
+	return a->actorid;
+}
+void Level::RegisterComponent(Component* component)
+{
+	components[component->componentid] = component;
+	actors[component->ownerid]->AddComponent(component->componentid);
+}
+
+char* Level::GetName()
+{
+	return name;
 }
 
 }

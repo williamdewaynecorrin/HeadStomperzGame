@@ -5,6 +5,7 @@
 
 #pragma once
 #include <vector>
+#include "game\level.h"
 
 namespace HSZGame {
 
@@ -21,8 +22,10 @@ public:
 
 	// -- update components
 	virtual void UpdateComponents(float dt) = 0;
+	// -- init
+	virtual void Initialize() = 0;
 	// -- populates the components of this systems
-	virtual void PopulateFromCurrentLevel() = 0;
+	virtual void PopulateFromCurrentLevel(Level* populatefrom) = 0;
 	// -- clears the components of this system
 	virtual void ClearFromCurrentLevel() = 0;
 

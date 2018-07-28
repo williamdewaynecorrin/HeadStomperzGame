@@ -24,6 +24,12 @@ GLuint Shader::GetShaderID()
 	return shaderid;
 }
 
+Shader& Shader::SetAsActiveShader()
+{
+	glUseProgram(this->shaderid);
+	return *this;
+}
+
 // =================================================================================================
 // COMPILE SHADER
 // =================================================================================================
@@ -134,6 +140,7 @@ void Shader::CheckCompileErrors(GLuint obj, std::string type)
 				<< infoLog << "\n -- --------------------------------------------------- -- "
 				<< std::endl;
 		}
+		else printf("Compiled %s shader with no errors.\n", type.c_str());
 	}
 	else
 	{

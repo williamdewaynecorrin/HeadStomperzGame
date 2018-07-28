@@ -5,6 +5,8 @@
 
 #pragma once
 #include "glm\ext.hpp"
+#include "component\transformcomponent.h"
+
 using namespace glm;
 
 namespace HSZGame {
@@ -28,12 +30,7 @@ private:
 	vec2 topleft;
 	vec2 bottomright;
 	mat4 projectionortho;
-
-	// -- transformation vars
-	vec2 position;
-	vec2 scale;
-	float rotation;
-	mat4 world;
+	TransformComponent* transform;
 };
 
 }

@@ -3,14 +3,19 @@
 //--------------------------------------- (c) William Dewayne Corrin, 2018  ------------------------
 //==================================================================================================
 
+#define LEVEL_NONE "LEVEL_NULL"
+
 #pragma once
 #include "graphics\gamewindow.h"
 #include "graphics\resolution.h"
 #include "game\level.h" //also includes actor, vector
 #include "componentsystem\spritecomponentsystem.h"
+#include "componentsystem\transformcomponentsystem.h"
 #include "camera\camera2D.h"
 #include "utility\time.h"
+#include "graphics\contentbase.h"
 #include "glm\ext.hpp"
+#include <map>
 
 namespace HSZGame 
 {
@@ -33,23 +38,27 @@ public:
 	static int GenerateActorGUID();
 	static int GenerateComponentGUID();
 	static void ChangeLevel(char levelname[]);
-	static void ChangeLevel(int levelindex);
+	static void ChangeLevel(Level& to, char levelname[]);
 	static Level* GetCurrentLevel();
 	static Camera2D* GetDefaultCamera();
 private:
 	// internal engine functions ===================================================================
 	bool Initialize(RESOLUTION res);
+	void LoadContent();
+	void LoadLevels();
 	void Update();
 	void UpdateDisplay();
 	void UpdateCameras();
 	void UpdateComponentSystems();
 	void Render();
+	void AddLevel(Level* l);
 
 	// variable members ============================================================================
 	GameWindow* window;
-	std::vector<Level*> levels;
+	std::map<const char*, Level*> levels;
 	SpriteComponentSystem* spritecs;
-	int currentlevelindex;
+	TransformComponentSystem* transformcs;
+	char* currentlevelname;
 	std::vector<Camera2D*> cameras;
 	Time* time;
 

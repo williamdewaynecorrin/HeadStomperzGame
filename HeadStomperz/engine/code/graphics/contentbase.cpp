@@ -107,10 +107,17 @@ Texture2D ContentBase::LoadTexture2DFromFile(const char *file, bool alpha)
 	unsigned char* image = SOIL_load_image(file, &width, &height, 0, 
 		texture.GetImageFormat() == GL_RGBA ? SOIL_LOAD_RGBA : SOIL_LOAD_RGB);
 	// Now generate texture
+	if (image == nullptr)
+		printf("[ERROR]: image is nullptr. probably cannot find the path.\n");
 	texture.Initialize(width, height, image);
 	// And finally free image data
 	SOIL_free_image_data(image);
 	return texture;
+}
+
+Shader ContentBase::GetDefaultSpriteShader()
+{
+	return shaders["sprite_default"];
 }
 
 }

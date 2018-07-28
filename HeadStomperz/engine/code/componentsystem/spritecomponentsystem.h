@@ -13,9 +13,13 @@ class SpriteComponentSystem : public ComponentSystem<SpriteComponent>
 public:
 	SpriteComponentSystem();
 	~SpriteComponentSystem();
-	SpriteComponentSystem(ComponentSystem<Component*>* compsys);
+	// -- updates & renders all of the spritecomponents
 	virtual void UpdateComponents(float dt);
-	virtual void PopulateFromCurrentLevel();
+	// -- init
+	virtual void Initialize();
+	// -- populates the component system with objects of this container type from current level
+	virtual void PopulateFromCurrentLevel(Level* populatefrom);
+	// -- clears the component system of all its components. used when changing levels / unloading
 	virtual void ClearFromCurrentLevel();
 };
 

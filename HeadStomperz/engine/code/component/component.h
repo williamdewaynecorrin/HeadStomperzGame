@@ -10,8 +10,10 @@ namespace HSZGame {
 class Component
 {
 public:
-	virtual bool Initialize(unsigned int owningactorid);
-	virtual bool Initialize(unsigned int owningactorid, char* componentname);
+	Component(unsigned int owningactorid);
+	Component(unsigned int owningactorid, char* componentname);
+	~Component();
+	virtual bool Initialize();
 	bool enabled;
 	char *name;
 	unsigned int ownerid;

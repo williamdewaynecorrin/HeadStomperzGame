@@ -167,6 +167,8 @@
     <ClCompile Include="engine\code\graphics\shader.cpp" />
     <ClCompile Include="engine\code\componentsystem\spritecomponentsystem.cpp" />
     <ClCompile Include="engine\code\graphics\texture2D.cpp" />
+    <ClCompile Include="engine\code\component\transformcomponent.cpp" />
+    <ClCompile Include="engine\code\componentsystem\transformcomponentsystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\code\componentsystem\componentsystem.cpp" />
@@ -184,9 +186,12 @@
     <ClInclude Include="engine\code\graphics\shader.h" />
     <ClInclude Include="engine\code\componentsystem\spritecomponentsystem.h" />
     <ClInclude Include="engine\code\graphics\texture2D.h" />
+    <ClInclude Include="engine\code\component\transformcomponent.h" />
+    <ClInclude Include="engine\code\componentsystem\transformcomponentsystem.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="engine\content\textures\test_sprite_01.bmp" />
+    <None Include="content\shaders\sprite.frag" />
+    <None Include="content\shaders\sprite.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
