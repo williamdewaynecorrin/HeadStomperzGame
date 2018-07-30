@@ -4,6 +4,7 @@
 //==================================================================================================
 
 #define LEVEL_NONE "LEVEL_NULL"
+#define skip continue
 
 #pragma once
 #include "graphics\gamewindow.h"
@@ -11,10 +12,13 @@
 #include "game\level.h" //also includes actor, vector
 #include "componentsystem\spritecomponentsystem.h"
 #include "componentsystem\transformcomponentsystem.h"
+#include "componentsystem\collisioncomponentsystem.h"
 #include "camera\camera2D.h"
 #include "utility\time.h"
 #include "graphics\contentbase.h"
 #include "glm\ext.hpp"
+#include "glew.h"
+#include "glfw3.h"
 #include <map>
 
 namespace HSZGame 
@@ -50,7 +54,7 @@ private:
 	void UpdateDisplay();
 	void UpdateCameras();
 	void UpdateComponentSystems();
-	void Render();
+	void SetupForRender();
 	void AddLevel(Level* l);
 
 	// variable members ============================================================================
@@ -58,6 +62,7 @@ private:
 	std::map<const char*, Level*> levels;
 	SpriteComponentSystem* spritecs;
 	TransformComponentSystem* transformcs;
+	CollisionComponentSystem* collisioncs;
 	char* currentlevelname;
 	std::vector<Camera2D*> cameras;
 	Time* time;

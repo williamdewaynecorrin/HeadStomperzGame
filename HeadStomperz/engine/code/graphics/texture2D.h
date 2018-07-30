@@ -17,6 +17,7 @@ public:
 	void Bind() const;
 	void SetInternalFormat(GLuint e);
 	void SetImageFormat(GLuint e);
+	bool IsAlphaBlended();
 	GLuint GetInternalFormat();
 	GLuint GetImageFormat();
 	GLuint handle;

@@ -18,23 +18,29 @@ Texture2D::Texture2D()
 	wrapt = GL_REPEAT;
 	filtermin = GL_LINEAR;
 	filtermax = GL_LINEAR;
-	// -- actually generate the handle for the texture
-	glGenTextures(1, &handle);
 }
 
 Texture2D::~Texture2D()
 {
 }
 
+bool Texture2D::IsAlphaBlended()
+{
+	return internalformat == GL_RGBA &&
+		imageformat == GL_RGBA;
+}
+
 void Texture2D::Initialize(GLuint w, GLuint h, unsigned char* data)
 {
+	// -- actually generate the handle for the texture
+	glGenTextures(1, &handle);
 	// -- set width and height
 	this->width = w;
 	this->height = h;
 	// -- create texture
 	Bind();
-	glTexImage2D(GL_TEXTURE_2D, 0, internalformat, width, height,
-		0, imageformat, GL_UNSIGNED_BYTE, data);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height,
+		0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 	// -- set texture wrap modes and stuff
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wraps);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapt);

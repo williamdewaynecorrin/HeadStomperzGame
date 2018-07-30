@@ -19,6 +19,7 @@ public:
 	~SpriteComponent();
 	virtual bool Initialize();
 	void SetShader(Shader s);
+	void SetImage(Texture2D image);
 	Shader GetShader();
 	Texture2D GetImage();
 	GLuint GetVAO();

@@ -51,18 +51,17 @@ void TransformComponent::SetTransformType(TransformType type)
 // =================================================================================================
 void TransformComponent::UpdateWorld()
 {
-	// -- update the transform slightly different depending on its type
-	switch (transformtype)
-	{
-	case REGULAR_T:
-		world = glm::translate(vec3(position.x, position.y, 0.0f)) *
-			glm::scale(vec3(scale.x, scale.y, 1.0f)) *
-			glm::rotate(rotation, vec3(0.0f, 0.0f, 1.0f));
-		break;
-	case SPRITE_T:
-		UpdateWorldSprite(vec2(10.0f));
-		break;
-	}
+	//position += 0.01f;
+
+	if (this->ownerid == 0)
+		rotation += 0.1f;
+	else if (this->ownerid == 1)
+		position.x -= 0.25f;
+	world = glm::translate(vec3(position.x, position.y, 0.0f)) *
+		//glm::translate(vec3(50.0f, 50.0f, 0.0f)) *
+		glm::rotate(glm::radians(rotation), vec3(0.0f, 0.0f, 1.0f)) *
+		glm::scale(vec3(scale.x, scale.y, 1.0f));// *
+		//glm::translate(vec3(-50.0f, -50.0f, 0.0f));
 }
 
 // =================================================================================================
@@ -70,15 +69,7 @@ void TransformComponent::UpdateWorld()
 // =================================================================================================
 void TransformComponent::UpdateWorldSprite(vec2 sz)
 {
-	/*world = glm::translate(vec3(position.x, position.y, 0.0f)) *
-		glm::scale(vec3(scale.x, scale.y, 1.0f)) *
-		glm::rotate(rotation, vec3(0.0f, 0.0f, 1.0f));*/
 
-	world = glm::translate(world, vec3(position, 0.0f));
-	world = glm::translate(world, vec3(0.5f * sz.x, 0.5f * sz.y, 0.0f)); // Move origin of rotation to center of quad
-	world = glm::rotate(world, rotation, vec3(0.0f, 0.0f, 1.0f)); // Then rotate
-	world = glm::translate(world, vec3(-0.5f * sz.x, -0.5f * sz.y, 0.0f)); // Move origin back
-	world = glm::scale(world, vec3(scale, 1.0f)); // Last scale
 }
 
 }

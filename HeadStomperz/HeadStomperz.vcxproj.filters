@@ -60,6 +60,15 @@
     <ClCompile Include="engine\code\componentsystem\transformcomponentsystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\code\component\collisioncomponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\code\component\circlecollisioncomponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\code\componentsystem\collisioncomponentsystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\code\camera\camera2D.h">
@@ -111,6 +120,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\code\componentsystem\transformcomponentsystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\code\component\collisioncomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\code\component\circlecollisioncomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\code\componentsystem\collisioncomponentsystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

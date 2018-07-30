@@ -19,8 +19,6 @@ SpriteComponent::SpriteComponent(unsigned int owningactorid, char* componentname
 {
 	color = vec3(1.0f, 1.0f, 1.0f);
 	alpha = 1.0f;
-
-	printf("SpriteComponent init.");
 }
 
 SpriteComponent::~SpriteComponent()
@@ -41,6 +39,11 @@ void SpriteComponent::SetShader(Shader s)
 Texture2D SpriteComponent::GetImage()
 {
 	return image;
+}
+
+void SpriteComponent::SetImage(Texture2D image)
+{
+	this->image = image;
 }
 
 GLuint SpriteComponent::GetVAO()
@@ -66,15 +69,20 @@ bool SpriteComponent::Initialize()
 	// -- now setup all the rendering stuff needed for sprites
 	GLuint vbo;
 	// -- construct vertices for a regular sprite that is 1x1
+	float sz = 200.0f;
+	float szdiv2 = sz / 2.0f;
+	float tx = 1.0f / 2.0f;
+	float txoffset = tx + .005f;
+
 	GLfloat vertices[] = {
 		// Pos      // Tex
-		0.0f, 1.0f, 0.0f, 1.0f,
-		1.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 0.0f,
+		-szdiv2, szdiv2, -tx + txoffset, tx + txoffset,
+		-szdiv2, -szdiv2, -tx + txoffset, -tx + txoffset,
+		szdiv2, -szdiv2, tx + txoffset, -tx + txoffset,
 
-		0.0f, 1.0f, 0.0f, 1.0f,
-		1.0f, 1.0f, 1.0f, 1.0f,
-		1.0f, 0.0f, 1.0f, 0.0f
+		-szdiv2, szdiv2, -tx + txoffset, tx + txoffset,
+		szdiv2, szdiv2, tx + txoffset, tx + txoffset,
+		szdiv2, -szdiv2, tx + txoffset, -tx + txoffset
 	};
 
 	this->SetShader(ContentBase::GetDefaultSpriteShader());
@@ -89,6 +97,8 @@ bool SpriteComponent::Initialize()
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+
+	return success;
 }
 
 }

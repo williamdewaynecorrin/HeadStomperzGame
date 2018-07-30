@@ -38,6 +38,7 @@ Game::Game()
 	// -- construct component systems
 	spritecs = new SpriteComponentSystem();
 	transformcs = new TransformComponentSystem();
+	collisioncs = new CollisionComponentSystem();
 	// -- construct time object
 	time = new Time();
 	// -- construct camera object
@@ -110,6 +111,7 @@ void Game::ChangeLevel(Level& to, char levelname[])
 	if (gameinstance->currentlevelname != LEVEL_NONE)
 	{
 		gameinstance->transformcs->ClearFromCurrentLevel();
+		gameinstance->collisioncs->ClearFromCurrentLevel();
 		gameinstance->spritecs->ClearFromCurrentLevel();
 	}
 
@@ -117,9 +119,11 @@ void Game::ChangeLevel(Level& to, char levelname[])
 	gameinstance->currentlevelname = levelname;
 	// -- populate all component systems
 	gameinstance->transformcs->PopulateFromCurrentLevel(GetCurrentLevel());
+	gameinstance->collisioncs->PopulateFromCurrentLevel(GetCurrentLevel());
 	gameinstance->spritecs->PopulateFromCurrentLevel(GetCurrentLevel());
 	// -- init all cs
 	gameinstance->transformcs->Initialize();
+	gameinstance->collisioncs->Initialize();
 	gameinstance->spritecs->Initialize();
 }
 
@@ -146,9 +150,15 @@ void Game::Update()
 		// -- update logic: tick the time, update component systems, update level, 
 		// -- render, update display
 		time->Tick();
+		SetupForRender();
+		UpdateCameras();
 		UpdateComponentSystems();
 		UpdateDisplay();
-		Render();
+
+		// -- debug stuff
+		GLenum error = glGetError();
+		if (error != GLEW_OK)
+			std::cout << glewGetErrorString(error) << std::endl;
 	} 
 	while (!gameover);
 }
@@ -156,9 +166,20 @@ void Game::Update()
 // =================================================================================================
 // -- renders all objects currently needed to be rendered in the game 
 // =================================================================================================
-void Game::Render()
+void Game::SetupForRender()
 {
-	
+	// -- opengl stuff that we need to do
+	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glDisable(GL_TEXTURE_2D);
+	//// -- set camera projection
+	//glMatrixMode(GL_PROJECTION);
+	//glLoadIdentity();
+	//GetDefaultCamera()->GluOrthoSetup();
+	//// -- set camera position
+	//glMatrixMode(GL_MODELVIEW);
+	//glLoadIdentity();
+	//GetDefaultCamera()->GluTranslateSetup();
 }
 // =================================================================================================
 // -- updates the game display, swapping screen buffers
@@ -168,17 +189,6 @@ void Game::UpdateDisplay()
 	//poll events and swap buffers
 	glfwPollEvents();
 	glfwSwapBuffers(window->GetGLFWwindow());
-
-	////increase time
-	//time += timeStep;
-
-	////deal with modTime (time that is always from 0->1)
-	//timeMod += timeStep;
-	//if (timeMod >= 1.0f)
-	//	timeMod -= 1.0f;
-
-	////increase frame
-	//frame++;
 
 	////update input
 	//input->UpdateLast();
@@ -205,12 +215,15 @@ void Game::UpdateCameras()
 void Game::UpdateComponentSystems()
 {
 	transformcs->UpdateComponents(time->deltatime);
+	collisioncs->UpdateComponents(time->deltatime);
 	spritecs->UpdateComponents(time->deltatime);
 }
 
 void Game::LoadContent()
 {
-	ContentBase::LoadTexture2D("collectable_01", "content//textures//test_sprite_01.bmp", true);
+	ContentBase::LoadTexture2D("collectable_01", "content//textures//test_sprite_01.png", true);
+	ContentBase::LoadTexture2D("planet_01", "content//textures//planet_01.png", true);
+	ContentBase::LoadTexture2D("creature_01_idle", "content//textures//creature_01_idle01.png", true);
 	ContentBase::LoadShader("sprite_default", "content//shaders//sprite.vert",
 		"content//shaders//sprite.frag");
 }
@@ -221,13 +234,43 @@ void Game::LoadLevels()
 	Level* test = new Level("test_level");
 	AddLevel(test);
 
-	// -- create actor
-	unsigned int testactorid = test->AddActor("test_actor");
+	// -- create planet actor
+	unsigned int planetactorid = test->AddActor("planet_actor");
+
 	// -- add actor components
-	TransformComponent* transform = new TransformComponent(testactorid);
-	test->RegisterComponent(transform);
-	SpriteComponent* sprite = new SpriteComponent(testactorid);
-	test->RegisterComponent(sprite);
+	TransformComponent* planetT = new TransformComponent(planetactorid);
+	planetT->position = vec2(-300.0f, 370.0f);
+	planetT->scale = vec2(4.0f);
+	test->RegisterComponent(planetT);
+	SpriteComponent* planetsprite = new SpriteComponent(planetactorid);
+	planetsprite->SetImage(ContentBase::GetTexture2D("planet_01"));
+	test->RegisterComponent(planetsprite);
+	CircleCollisionComponent* planetcircle = new CircleCollisionComponent(planetactorid, 510.0f);
+	test->RegisterComponent(planetcircle);
+
+	// -- create planet actor2
+	unsigned int planetactorid2 = test->AddActor("planet_actor2");
+
+	// -- add actor components
+	TransformComponent* planetT2 = new TransformComponent(planetactorid2);
+	planetT2->position = vec2(600.0f, 370.0f);
+	planetT2->scale = vec2(4.0f);
+	test->RegisterComponent(planetT2);
+	SpriteComponent* planetsprite2 = new SpriteComponent(planetactorid2);
+	planetsprite2->SetImage(ContentBase::GetTexture2D("planet_01"));
+	test->RegisterComponent(planetsprite2);
+	CircleCollisionComponent* planetcircle2 = new CircleCollisionComponent(planetactorid2, 510.0f);
+	test->RegisterComponent(planetcircle2);
+
+	// -- create char actor
+	unsigned int characteractorid = test->AddActor("character_actor");
+	// -- add actor components
+	TransformComponent* characterT = new TransformComponent(characteractorid);
+	characterT->position = vec2(-300.0f, -50.0f);
+	test->RegisterComponent(characterT);
+	SpriteComponent* charactersprite = new SpriteComponent(characteractorid);
+	charactersprite->SetImage(ContentBase::GetTexture2D("creature_01_idle"));
+	test->RegisterComponent(charactersprite);
 
 	// -- change current level to test level
 	ChangeLevel(test->GetName());

@@ -20,16 +20,22 @@ namespace HSZGame {
 
 	void TransformComponentSystem::Initialize()
 	{
-
+		// -- for every transform component in this list
+		for (int i = 0; i < components.size(); ++i)
+		{
+			// update transformations
+			components[i]->Initialize();
+		}
 	}
 
 	void TransformComponentSystem::UpdateComponents(float dt)
 	{
-		// -- for every sprite component in this list
+		// -- for every transform component in this list
 		for (int i = 0; i < components.size(); ++i)
 		{
 			// update transformations
-			components[i]->UpdateWorld();
+			if(components[i]->enabled)
+				components[i]->UpdateWorld();
 		}
 	}
 

@@ -5,6 +5,7 @@
 
 #pragma once
 #include "game\actor.h"
+#include "camera\camera2D.h"
 #include <map>
 
 namespace HSZGame {
@@ -35,6 +36,8 @@ public:
 	//gets all component instances of a certain type in this level
 	template<class ComponentType>
 	bool GetComponentsOfType(std::vector<ComponentType>* componentspointer);
+	
+	Camera2D* ActiveCamera();
 
 	char* GetName();
 	// -- add content to level

@@ -19,7 +19,12 @@ SpriteComponentSystem::~SpriteComponentSystem()
 
 void SpriteComponentSystem::Initialize()
 {
-
+	// -- for every sprite component in this list
+	for (int i = 0; i < components.size(); ++i)
+	{
+		// init sprites
+		components[i]->Initialize();
+	}
 }
 
 void SpriteComponentSystem::UpdateComponents(float dt)
@@ -29,14 +34,36 @@ void SpriteComponentSystem::UpdateComponents(float dt)
 	// -- for every sprite component in this list
 	for (int i = 0; i < components.size(); ++i)
 	{
+		// - only update if we are enabled
+		if (!components[i]->enabled)
+			skip;
+
 		// Prepare transformations
-		components[i]->GetShader().SetAsActiveShader();
 		TransformComponent* spritetransform = currentlevel->GetActorComponentByID<TransformComponent*>(components[i]->ownerid);
 
-		// -- set world matrix
+		// -- bind this sprites shader as active
+		components[i]->GetShader().SetAsActiveShader();
+		// -- set world & proj matrix
+		mat4 mvp = currentlevel->ActiveCamera()->GetProjectionMatrix() * currentlevel->ActiveCamera()->GetViewMatrix() * 
+			spritetransform->GetWorldMatrix();
+
 		components[i]->GetShader().SetMatrix4x4("model", spritetransform->GetWorldMatrix());
+		components[i]->GetShader().SetMatrix4x4("view", currentlevel->ActiveCamera()->GetViewMatrix());
+		components[i]->GetShader().SetMatrix4x4("projection", currentlevel->ActiveCamera()->GetProjectionMatrix());
+		components[i]->GetShader().SetMatrix4x4("mvp", mvp);
 		// -- set sprite color attribute
-		components[i]->GetShader().SetFloat3("spriteColor", components[i]->color);
+		components[i]->GetShader().SetFloat3("tint", components[i]->color);
+		components[i]->GetShader().SetFloat("alpha", components[i]->alpha);
+
+		if (components[i]->GetImage().IsAlphaBlended())
+		{
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		}
+		else
+		{
+			glDisable(GL_BLEND);
+		}
 
 		// -- set the active texture and then bind the image using VAO
 		glActiveTexture(GL_TEXTURE0);

@@ -154,6 +154,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="engine\code\componentsystem\collisioncomponentsystem.cpp" />
+    <ClCompile Include="engine\code\component\circlecollisioncomponent.cpp" />
+    <ClCompile Include="engine\code\component\collisioncomponent.cpp" />
     <ClCompile Include="engine\code\component\component.cpp" />
     <ClCompile Include="engine\code\game\actor.cpp" />
     <ClCompile Include="engine\code\camera\camera2D.cpp" />
@@ -171,6 +174,9 @@
     <ClCompile Include="engine\code\componentsystem\transformcomponentsystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="engine\code\componentsystem\collisioncomponentsystem.h" />
+    <ClInclude Include="engine\code\component\circlecollisioncomponent.h" />
+    <ClInclude Include="engine\code\component\collisioncomponent.h" />
     <ClInclude Include="engine\code\componentsystem\componentsystem.cpp" />
     <ClInclude Include="engine\code\componentsystem\componentsystem.h" />
     <ClInclude Include="engine\code\component\component.h" />

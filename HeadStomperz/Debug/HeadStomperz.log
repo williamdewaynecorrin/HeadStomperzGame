@@ -1,3 +1,14 @@
-﻿  actor.cpp
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+﻿  collisioncomponentsystem.cpp
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\componentsystem\collisioncomponentsystem.cpp(24): warning C4018: '<': signed/unsigned mismatch
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\componentsystem\collisioncomponentsystem.cpp(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\componentsystem\collisioncomponentsystem.cpp(51): warning C4018: '<': signed/unsigned mismatch
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\componentsystem\collisioncomponentsystem.cpp(61): warning C4018: '<': signed/unsigned mismatch
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\componentsystem\collisioncomponentsystem.cpp(88): warning C4018: '<': signed/unsigned mismatch
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\componentsystem\collisioncomponentsystem.cpp(98): warning C4018: '<': signed/unsigned mismatch
+c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\game\level.h(91): warning C4018: '<': signed/unsigned mismatch
+  c:\users\socce\documents\c++ projects\headstomperz\headstomperz\engine\code\componentsystem\collisioncomponentsystem.cpp(44): note: see reference to function template instantiation 'ComponentType *HSZGame::Level::GetActorComponentByID<HSZGame::TransformComponent*>(unsigned int)' being compiled
+          with
+          [
+              ComponentType=HSZGame::TransformComponent *
+          ]
   HeadStomperz.vcxproj -> C:\Users\socce\Documents\C++ Projects\HeadStomperz\Debug\HeadStomperz.exe

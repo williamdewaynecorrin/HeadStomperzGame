@@ -4,6 +4,8 @@
 //==================================================================================================
 
 #include "level.h"
+#include "game.h"
+
 namespace HSZGame {
 
 Level::Level(char levelname[])
@@ -85,6 +87,11 @@ void Level::RegisterComponent(Component* component)
 char* Level::GetName()
 {
 	return name;
+}
+
+Camera2D* Level::ActiveCamera()
+{
+	return Game::GetDefaultCamera();
 }
 
 }
